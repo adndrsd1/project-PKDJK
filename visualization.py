@@ -3,14 +3,10 @@ import streamlit as st
 import plotly.express as px
 
 data = pd.read_csv('./Label/CICDS_Wednesday.csv')
-# print(data)
-# print("\n", data.info())
 
 data_attack = data[data[' Label'] != 'BENIGN']
-# print("\n", data_attack[' Label'].value_counts())
 
 data_classify = data.groupby([' Timestamp', ' Destination IP', ' Label']).size().reset_index(name=' Count')
-# print("\n", data_classify[data_classify[' Label'] != 'BENIGN'])
 
 st.title("Visualize Attack Types with Bar Chart")
 st.write("Pilih jenis serangan yang ingin dilihat")
